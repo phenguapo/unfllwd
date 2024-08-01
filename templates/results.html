@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>unfllwd - results</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(0deg, #000819 0%, #004b4d 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background: rgba(2, 0, 0, 0.253);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #f1f1f1;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+      }
+      li input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .btn-container {
+        margin-top: 20px;
+      }
+      p {
+        color: azure;
+      }
+    </style>
+    <script>
+      function copyToClipboard() {
+        const users = Array.from(document.querySelectorAll('li')).map(li => li.textContent.trim());
+        const text = users.join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Copied to clipboard');
+        });
+      }
+
+      function downloadAsFile() {
+        const users = Array.from(document.querySelectorAll('li')).map(li => li.textContent.trim());
+        const text = users.join('\n');
+        const blob = new Blob([text], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'not_following_back.txt';
+        link.click();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Users you are following but are not following you back:</h1>
+      <ul>
+        {% for user in not_following_back %}
+          <li><input type="checkbox">{{ user }}</li>
+        {% endfor %}
+      </ul>
+      <p>Total: {{ count }}</p>
+      <div class="btn-container">
+        <button onclick="copyToClipboard()" class="btn btn-primary btn-block">Copy to Clipboard</button>
+        <button onclick="downloadAsFile()" class="btn btn-secondary btn-block">Download as Text File</button>
+        <a href="{{ url_for('upload_files') }}" class="btn btn-secondary btn-block">Go back</a>
+      </div>
+    </div>
+  </body>
+</html>

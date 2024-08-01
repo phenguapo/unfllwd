@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>unfllwd</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(0deg, #000819 0%, #004b4d 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background: rgba(2, 0, 0, 0.253);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: azure;
+        margin-bottom: 20px;
+      }
+      .con-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+      h1 {
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 20px;
+      }
+      form label {
+        font-weight: bold;
+      }
+      button {
+        margin-top: 20px;
+        width: 100px;
+      }
+      .img-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .img-container img {
+        height: 70px;
+        width: 70px;
+        margin-top: 20px;
+      }
+      .info-section, .instructions {
+        background: rgba(2, 0, 0, 0.253);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: azure;
+        margin-top: 15px;
+      }
+      .info-section h2, .instructions h2 {
+        margin-top: 0;
+        text-align: center;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        width: 100%;
+      }
+      strong { 
+        color: lightslategrey;
+      }
+      .logo-p {
+        color: azure;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-container">
+      <a href="">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="img-fluid">
+      </a>
+    </div>
+    <center><p class="logo-p" id="intro">The easiest and most risk-free way to see who follows you back. <br> (no account or fishy payment needed!)</p></center>
+    <div class="con-container">
+      <div class="container">
+        <h1 class="text-center" id="upload-title">Upload your Instagram™ Data (.html files)</h1>
+        <h5 class="text-center" id="tutorial-info">(tutorial and information below)</h5>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="followers_file" id="followers-file-label">Followers File:</label>
+            <input type="file" class="form-control-file" name="followers_file" accept=".html" required>
+          </div>
+          <div class="form-group">
+            <label for="followings_file" id="following-file-label">Following File:</label>
+            <input type="file" class="form-control-file" name="followings_file" accept=".html" required>
+          </div>
+          <center>
+            <button type="submit" class="btn btn-primary btn-info" id="upload-button">Upload</button>
+          </center>
+        </form>
+      </div>
+      <div class="grid-container">
+        <div class="instructions" id="instructions">
+          <h2 id="how-to-download">How to Download Your Instagram™ Data</h2>
+          <ol>
+            <li id="step1">Open Instagram™ and go to <strong>Settings</strong>.</li>
+            <li id="step2">Navigate to <strong>"Accounts Center"</strong>.</li>
+            <li id="step3">Select <strong>"Your Information and Permissions"</strong>.</li>
+            <li id="step4">Click on <strong>"Download Your Information"</strong>.</li>
+            <li id="step5">Choose <strong>"Download or Transfer Information"</strong>.</li>
+            <li id="step6">Select your account and press <strong>"Next"</strong>.</li>
+            <li id="step7">Choose <strong>"Some of Your Information"</strong>, then select <strong>"Followers and Following"</strong>.</li>
+            <li id="step8">Choose <strong>"Download to Device"</strong>, then <strong>"Next"</strong>.</li>
+            <li id="step9">Set the Date Range to <strong>"All Time"</strong> and click <strong>"Create Files"</strong>.</li>
+            <li id="step10">Wait 3-5 minutes for the process to complete.</li>
+            <li id="step11">Download .zip file</li>
+            <li id="step12">Access the downloaded .zip file using WinRAR or 7-Zip.</li>
+            <li id="step13">Extract the <strong>"connections"</strong> folder.</li>
+            <li id="step14">Navigate to the <strong>"followers and following"</strong> folder.</li>
+            <li id="step15">Upload <strong>"followers_1.html"</strong> and <strong>"following.html"</strong> files here.</li>
+          </ol>
+        </div>
+        <div class="info-section" id="info-section">
+          <h2 id="important-info">Important Information</h2>
+          <p id="risk-free"><strong>100% Risk-Free:</strong> unfllwd does not use bots or interfere with your account in any way. It is untraceable and Instagram™ or Meta™ can not ban/block/disable your account for using it.</p>
+          <p id="data-privacy"><strong>Data Privacy:</strong> This application does not store any personal information, as it also does not have access to your account. The data you upload contain, as it is heavily implied, your follower and following list ONLY and it is used to process your request, it is not saved or shared in any way.</p>
+          <p id="open-source"><strong>Open Source:</strong> This app is open source, which means that the source code is available for anyone to view, use, and modify. You can access the code on my <a href="" id="github-link">Github repository</a>.</p>
+          <p id="notice"><strong>Notice of Non-Affiliation:</strong> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Instagram™ and Meta™, or any of its subsidiaries or its affiliates. The official Instagram™ and Meta™ website can be found at <a href="http://www.instagram.com" id="instagram-link">http://www.instagram.com</a> and <a href="http://www.meta.com" id="meta-link">http://www.meta.com</a> respectively.</p>    
+        </div>
+      </div>
+      <center><p><strong id="footer-text">created by <a href="https://github.com/phenguapo" id="github-profile">phenguapo</a> in 2024 for the World, all donations and ads go <br> towards domain rent and maintenance.</strong></p></center>
+      <center>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="FQ3EB8HA3C5TW" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+          <img alt="" border="0" src="https://www.paypal.com/en_GR/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </center>
+      <center>
+        <div style="position: absolute; top: 10px; right: 10px;">
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="gr">Ελληνικά</option>
+          </select>
+        </div>        
+      </center>
+    </div>
+    <script>
+      const translations = {
+        "gr": {
+          "intro": "Ο ευκολότερος και πιο ασφαλής τρόπος να δείτε ποιος σας ακολουθεί πίσω. <br> (χωρίς λογαριασμό ή ύποπτες πληρωμές!)",
+          "upload-title": "Ανεβάστε τα δεδομένα του Instagram™ σας (.html αρχεία)",
+          "tutorial-info": "(οδηγίες και πληροφορίες παρακάτω)",
+          "followers-file-label": "Αρχείο Followers:",
+          "following-file-label": "Αρχείο Following:",
+          "upload-button": "Ανέβασμα",
+          "how-to-download": "Πώς να κατεβάσετε τα δεδομένα του Instagram™ σας",
+          "step1": "Ανοίξτε το Instagram™ και μεταβείτε στις <strong>Ρυθμίσεις</strong>.",
+          "step2": "Μεταβείτε στο <strong>\"Κέντρο διαχείρισης λογαριασμών\"</strong>.",
+          "step3": "Επιλέξτε <strong>\"Πληροφορίες και δικαιώματα\"</strong>.",
+          "step4": "Κάντε κλικ στο <strong>\"Κατεβάστε τις πληροφορίες σας\"</strong>.",
+          "step5": "Επιλέξτε <strong>\"Κατεβάστε ή μεταφέρετε τις πληροφορίες σας\"</strong>.",
+          "step6": "Επιλέξτε τον λογαριασμό σας και πατήστε <strong>\"Επόμενο\"</strong>.",
+          "step7": "Επιλέξτε <strong>\"Ορισμένες από τις πληροφορίες σας\"</strong>, στη συνέχεια επιλέξτε <strong>\"Ακόλουθοι και άτομα ποθ ακολουθείτε\"</strong>.",
+          "step8": "Επιλέξτε <strong>\"Λήψη στη συσκευή\"</strong>, στη συνέχεια <strong>\"Επόμενο\"</strong>.",
+          "step9": "Ορίστε το χρονικό διάστημα σε <strong>\"Διαχρονικά\"</strong> και κάντε κλικ στο <strong>\"Δημιουργία αρχείων\"</strong>.",
+          "step10": "Περιμένετε 3-5 λεπτά για να ολοκληρωθεί η διαδικασία.",
+          "step11": "Κατεβάστε το .zip αρχείο",
+          "step12": "Ανοίξτε το κατεβασμένο .zip αρχείο χρησιμοποιώντας WinRAR ή 7-Zip.",
+          "step13": "Εξαγάγετε τον φάκελο <strong>\"connections\"</strong>.",
+          "step14": "Μεταβείτε στον φάκελο <strong>\"followers and following\"</strong>.",
+          "step15": "Ανεβάστε τα αρχεία <strong>\"followers_1.html\"</strong> και <strong>\"following.html\"</strong> εδώ.",
+          "important-info": "Σημαντικές Πληροφορίες",
+          "risk-free": "<strong>100% Χωρίς Ρίσκο:</strong> το unfllwd δεν χρησιμοποιεί bots ή παρεμβαίνει με τον λογαριασμό σας με οποιονδήποτε τρόπο. Είναι μη-ανιχνεύσιμο και το Instagram™ ή το Meta™ δεν μπορούν να απαγορεύσουν/μπλοκάρουν/απενεργοποιήσουν τον λογαριασμό σας για τη χρήση του.",
+          "data-privacy": "<strong>Απόρρητο Δεδομένων:</strong> Αυτή η εφαρμογή δεν αποθηκεύει καμία προσωπική πληροφορία, καθώς δεν έχει πρόσβαση στον λογαριασμό σας. Τα δεδομένα που ανεβάζετε περιέχουν, όπως υποδηλώνεται, μόνο τη λίστα ακολούθων και ακολουθούμενων σας και χρησιμοποιούνται για την επεξεργασία του αιτήματός σας, δεν αποθηκεύονται ή κοινοποιούνται με κανέναν τρόπο.",
+          "open-source": "<strong>Ανοιχτού Κώδικα:</strong> Αυτή η εφαρμογή είναι ανοιχτού κώδικα, που σημαίνει ότι ο πηγαίος κώδικας είναι διαθέσιμος για όποιον θέλει να τον δει, να τον χρησιμοποιήσει και να τον τροποποιήσει. Μπορείτε να αποκτήσετε πρόσβαση στον κώδικα στο <a href='' id='github-link'>repo μου στο Github</a>.",
+          "notice": "<strong>Σημείωση Μη Συνεργασίας:</strong> Δεν είμαστε συνδεδεμένοι, συσχετισμένοι, εξουσιοδοτημένοι, εγκεκριμένοι ή με οποιονδήποτε τρόπο επίσημα συνδεδεμένοι με το Instagram™ και το Meta™, ή οποιαδήποτε από τις θυγατρικές ή συνεργαζόμενες εταιρείες τους. Η επίσημη ιστοσελίδα του Instagram™ και του Meta™ μπορεί να βρεθεί στο <a href='http://www.instagram.com' id='instagram-link'>http://www.instagram.com</a> και <a href='http://www.meta.com' id='meta-link'>http://www.meta.com</a> αντίστοιχα.",
+          "footer-text": "δημιουργήθηκε από τον <a href='https://github.com/phenguapo' id='github-profile'>phenguapo</a> το 2024 για τον Κόσμο, όλες οι δωρεές και οι διαφημίσεις πηγαίνουν <br> προς την ενοικίαση και την συντήρηση της σελίδας."
+        },
+        "en": {
+          "intro": "The easiest and most risk-free way to see who follows you back. <br> (no account or fishy payment needed!)",
+          "upload-title": "Upload your Instagram™ Data (.html files)",
+          "tutorial-info": "tutorial and information below",
+          "followers-file-label": "Followers File:",
+          "following-file-label": "Following File:",
+          "upload-button": "Upload",
+          "how-to-download": "How to Download Your Instagram™ Data",
+          "step1": "Open Instagram and go to <strong>Settings</strong>.",
+          "step2": "Navigate to <strong>\"Accounts Center\"</strong>.",
+          "step3": "Select <strong>\"Your Information and Permissions\"</strong>.",
+          "step4": "Click on <strong>\"Download Your Information\"</strong>.",
+          "step5": "Choose <strong>\"Download or Transfer Information\"</strong>.",
+          "step6": "Select your account and press <strong>\"Next\"</strong>.",
+          "step7": "Choose <strong>\"Some of Your Information\"</strong>, then select <strong>\"Followers and Following\"</strong>.",
+          "step8": "Choose <strong>\"Download to Device\"</strong>, then <strong>\"Next\"</strong>.",
+          "step9": "Set the Date Range to <strong>\"All Time\"</strong> and click <strong>\"Create Files\"</strong>.",
+          "step10": "Wait 3-5 minutes for the process to complete.",
+          "step11": "Download .zip file",
+          "step12": "Access the downloaded .zip file using WinRAR or 7-Zip.",
+          "step13": "Extract the <strong>\"connections\"</strong> folder.",
+          "step14": "Navigate to the <strong>\"followers and following\"</strong> folder.",
+          "step15": "Upload <strong>\"followers_1.html\"</strong> and <strong>\"following.html\"</strong> files here.",
+          "important-info": "Important Information",
+          "risk-free": "<strong>100% Risk-Free:</strong> unfllwd does not use bots or interfere with your account in any way. It is untraceable and Instagram™ or Meta™ can not ban/block/disable your account for using it.",
+          "data-privacy": "<strong>Data Privacy:</strong> This application does not store any personal information, as it also does not have access to your account. The data you upload contain, as it is heavily implied, your follower and following list ONLY and it is used to process your request, it is not saved or shared in any way.",
+          "open-source": "<strong>Open Source:</strong> This app is open source, which means that the source code is available for anyone to view, use, and modify. You can access the code on my <a href='' id='github-link'>Github repository</a>.",
+          "notice": "<strong>Notice of Non-Affiliation:</strong> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Instagram™ and Meta™, or any of its subsidiaries or its affiliates. The official Instagram™ and Meta™ website can be found at <a href='http://www.instagram.com' id='instagram-link'>http://www.instagram.com</a> and <a href='http://www.meta.com' id='meta-link'>http://www.meta.com</a> respectively.",
+          "footer-text": "created by <a href='https://github.com/phenguapo' id='github-profile'>phenguapo</a> in 2024 for the World, all donations and ads go <br> towards domain rent and maintenance."
+        }
+      };
+
+      document.getElementById('language-select').addEventListener('change', (event) => {
+  const newLang = event.target.value;
+
+  document.querySelector('.logo-p').innerHTML = translations[newLang]['intro'];
+  document.querySelector('.container h1').innerText = translations[newLang]['upload-title'];
+  document.querySelector('.container h5').innerText = translations[newLang]['tutorial-info'];
+  document.querySelector('label[for="followers_file"]').innerText = translations[newLang]['followers-file-label'];
+  document.querySelector('label[for="followings_file"]').innerText = translations[newLang]['following-file-label'];
+  document.querySelector('button[type="submit"]').innerText = translations[newLang]['upload-button'];
+
+  document.querySelector('.instructions h2').innerText = translations[newLang]['how-to-download'];
+  document.querySelectorAll('.instructions ol li').forEach((li, index) => {
+    li.innerHTML = translations[newLang][`step${index + 1}`];
+  });
+
+  document.querySelector('.info-section h2').innerText = translations[newLang]['important-info'];
+  document.querySelector('.info-section p:nth-of-type(1)').innerHTML = translations[newLang]['risk-free'];
+  document.querySelector('.info-section p:nth-of-type(2)').innerHTML = translations[newLang]['data-privacy'];
+  document.querySelector('.info-section p:nth-of-type(3)').innerHTML = translations[newLang]['open-source'];
+  document.querySelector('.info-section p:nth-of-type(4)').innerHTML = translations[newLang]['notice'];
+
+  document.querySelector('.con-container > center p strong').innerHTML = translations[newLang]['footer-text'];
+
+  document.getElementById('github-link').setAttribute('href', 'https://github.com/phenguapo');
+  document.getElementById('instagram-link').setAttribute('href', 'http://www.instagram.com');
+  document.getElementById('meta-link').setAttribute('href', 'http://www.meta.com');
+  document.getElementById('github-profile').setAttribute('href', 'https://github.com/phenguapo');
+});
+    </script>
+  </body>
+</html>
